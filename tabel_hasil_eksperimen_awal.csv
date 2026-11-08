@@ -1,0 +1,31 @@
+peran,model,fitur,parameter,validasi,metrik,latih,uji,keterangan
+baseline,K-Means,A_semua (10 fitur),k=5,split waktu 2010-17 / 2018-25,silhouette,0.094,0.088,ruang fitur model sendiri
+baseline,K-Means,A_semua (10 fitur),k=5,split waktu 2010-17 / 2018-25,davies_bouldin,2.502,2.570,
+kandidat 1,PCA + K-Means,A -> 9 PC,k=5,split waktu 2010-17 / 2018-25,silhouette,0.101,0.093,
+kandidat 1,PCA + K-Means,A -> 9 PC,k=5,split waktu 2010-17 / 2018-25,davies_bouldin,2.334,2.470,
+kandidat 2,K-Means,C_lokasi_dalam (3 fitur),k=5,split waktu 2010-17 / 2018-25,silhouette,0.402,0.417,
+kandidat 2,K-Means,C_lokasi_dalam (3 fitur),k=5,split waktu 2010-17 / 2018-25,davies_bouldin,0.894,0.894,
+kandidat 3,GMM,A -> 9 PC,k=5,split waktu 2010-17 / 2018-25,silhouette,0.076,0.072,
+kandidat 3,GMM,A -> 9 PC,k=5,split waktu 2010-17 / 2018-25,davies_bouldin,2.449,2.516,
+ablasi fitur,K-Means,B_tanpa_siklik (6 fitur),k=5,split waktu 2010-17 / 2018-25,silhouette,0.185,0.188,
+ablasi fitur,K-Means,B_tanpa_siklik (6 fitur),k=5,split waktu 2010-17 / 2018-25,davies_bouldin,1.637,1.628,
+ablasi fitur,K-Means,D_lokasi_dalam_mag (4 fitur),k=5,split waktu 2010-17 / 2018-25,silhouette,0.292,0.283,
+ablasi fitur,K-Means,D_lokasi_dalam_mag (4 fitur),k=5,split waktu 2010-17 / 2018-25,davies_bouldin,1.150,1.193,
+kandidat 4,DBSCAN haversine,lintang-bujur,eps=50 km; min_samples=30,fit terpisah latih vs uji,silhouette_geo,0.353,0.317,21 cluster latih / 25 uji; noise 16.6% / 15.8%
+stabilitas,K-Means,A_semua,k=5,bootstrap 80% x10,ARI,0.630,,std 0.146
+stabilitas,K-Means,C_lokasi_dalam,k=5,bootstrap 80% x10,ARI,0.994,,std 0.002
+reduksi dimensi,PCA 2D,A_semua,n_neighbors=10; sampel 3000,trustworthiness (latih),trustworthiness,0.738,,
+reduksi dimensi,UMAP 2D,A_semua,n_neighbors=10; sampel 3000,trustworthiness (latih),trustworthiness,0.941,,
+reduksi dimensi,t-SNE 2D,A_semua,n_neighbors=10; sampel 3000,trustworthiness (latih),trustworthiness,0.984,,
+ruang sama (A),Baseline K-Means,A_semua,k=5,split waktu,silhouette di ruang A,0.094,0.088,
+ruang sama (A),PCA + K-Means,A -> 9 PC,k=5,split waktu,silhouette di ruang A,0.095,0.086,
+ruang sama (A),GMM,A -> 9 PC,k=5,split waktu,silhouette di ruang A,0.072,0.067,
+ruang sama (A),K-Means,B_tanpa_siklik,k=5,split waktu,silhouette di ruang A,0.096,0.101,
+ruang sama (A),K-Means,C_lokasi_dalam,k=5,split waktu,silhouette di ruang A,0.088,0.095,
+ruang sama (A),K-Means,D_lokasi_dalam_mag,k=5,split waktu,silhouette di ruang A,0.091,0.088,
+ruang sama (C),Baseline K-Means,A_semua,k=5,split waktu,silhouette di ruang C,0.158,0.160,
+ruang sama (C),PCA + K-Means,A -> 9 PC,k=5,split waktu,silhouette di ruang C,0.080,0.027,
+ruang sama (C),GMM,A -> 9 PC,k=5,split waktu,silhouette di ruang C,-0.008,-0.027,
+ruang sama (C),K-Means,B_tanpa_siklik,k=5,split waktu,silhouette di ruang C,0.209,0.194,
+ruang sama (C),K-Means,C_lokasi_dalam,k=5,split waktu,silhouette di ruang C,0.402,0.417,
+ruang sama (C),K-Means,D_lokasi_dalam_mag,k=5,split waktu,silhouette di ruang C,0.263,0.229,
